@@ -13,7 +13,7 @@ def get_requirements():
 
 
 setup(
-    name='git-secrets',
+    name='qpp-git-secrets',
     version='1.0.0',
     author='halprin',
     author_email='me@halprin.io',
@@ -23,8 +23,8 @@ setup(
     url='https://github.com/halprin/git-secrets',
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: MacOS',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Operating System :: OS Independent',
     ],
     packages=find_packages(),
     install_requires=get_requirements(),
