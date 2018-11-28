@@ -32,5 +32,4 @@ def get_hooks_directory() -> Optional[str]:
 
 
 def _run_git_with_arguments(arguments: List[str]) -> str:
-    completed_process = subprocess.run(['git'] + arguments, capture_output=True, encoding='utf-8')
-    return completed_process.stdout.strip()
+    return subprocess.check_output(['git'] + arguments, encoding='utf-8').strip()
