@@ -26,7 +26,7 @@ setup(
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: OS Independent',
     ],
-    packages=find_packages(),
+    packages=find_packages(exclude=('tests',)),
     install_requires=get_requirements(),
     entry_points='''
         [console_scripts]
