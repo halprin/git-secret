@@ -16,7 +16,7 @@ def test__scan_line():
 
 @patch('git_secrets.secrets.scan.cli_library', autospec=True)
 @patch('git_secrets.secrets.scan.secrets', autospec=True)
-def test_scan(secrets_mock, cli_mock):
+def test_scan_with_zero_secrets(secrets_mock, cli_mock):
     secrets_mock.load_patterns.return_value = []
 
     scan.scan()
