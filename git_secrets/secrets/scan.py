@@ -9,7 +9,7 @@ from ..cli import cli_library
 def scan():
     secret_patterns = secrets.load_patterns()
     if len(secret_patterns) < 1:
-        cli_library.fail_execution(0, 'No secret patterns specified')
+        cli_library.fail_execution(5, 'No secret patterns specified.  Specify secrets in .gitsecrets or ~/.gitsecrets')
 
     diff = git.staged_diff()
 
