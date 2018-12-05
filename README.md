@@ -53,8 +53,8 @@ $ git secrets scan
 Secrets are then scanned.
 
 ### Specifying Secrets
-There are two locations that `git-secrets` checks for secret specifications.  The second location is checked only if
-the specifications aren't found in the first location.
+There are two locations that `git-secrets` checks for secret specifications.  The secrets from the two locations are
+merged together.
 1. A `.gitsecrets` file in the top level directory of the repository.
 1. `~/.gitsecrets`.
 
