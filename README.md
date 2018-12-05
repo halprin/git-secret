@@ -53,13 +53,21 @@ $ git secrets scan
 Secrets are then scanned.
 
 ### Specifying Secrets
-There are two locations that `git-secrets` checks for secret specifications.  The second location is checked only if
-the specifications aren't found in the first location.
+There are two locations that `git-secrets` checks for secret specifications.  The secrets from the two locations are
+merged together.
 1. A `.gitsecrets` file in the top level directory of the repository.
 1. `~/.gitsecrets`.
 
 Each line in these files should contain a regular expression.  The regular expression syntax is based off what the
 [Python 3 `re` module](https://docs.python.org/3/library/re.html) supports.
+
+#### Example Secrets
+TINs that don't start with `000` or `999` or don't have `00` for the middle number group.
+```regexp
+(\D|^)(?!000)(?!999)\d{3}\s(?!00)\d{2}\s\d{4}(\D|$)
+(\D|^)(?!000)(?!999)\d{3}-(?!00)\d{2}-\d{4}(\D|$)
+(\D|^)(?!000)(?!999)\d{3}(?!00)\d{2}\d{4}(\D|$)
+```
 
 ## Development
 I accept PRs!  Check out the [issues](https://github.com/halprin/git-secrets/issues).
