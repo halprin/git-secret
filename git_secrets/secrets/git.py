@@ -1,5 +1,6 @@
 from typing import List, Optional
 import subprocess
+from subprocess import CalledProcessError
 from unidiff import PatchSet
 import os
 
@@ -32,4 +33,12 @@ def get_hooks_directory() -> Optional[str]:
 
 
 def _run_git_with_arguments(arguments: List[str]) -> str:
-    return subprocess.check_output(['git'] + arguments, encoding='utf-8').strip()
+    try:
+        output = subprocess.check_output(['git'] + arguments, encoding='utf-8', stderr=subprocess.PIPE).strip()
+    except CalledProcessError as exception:
+        if exception.output != '':
+            output = exception.output
+        else:
+            output = exception.stderr
+
+    return output
