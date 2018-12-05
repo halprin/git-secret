@@ -14,7 +14,7 @@ def get_requirements():
 
 setup(
     name='qpp-git-secrets',
-    version='1.1.0',
+    version='1.1.1',
     author='halprin',
     author_email='me@halprin.io',
     description='Git without secrets',
